@@ -7,7 +7,6 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { TextRegister } from "../styles";
-import Register from "./Register";
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -17,6 +16,24 @@ function Login() {
 
     function openModal() {
         setModal(true);
+    }
+
+    function checkLogin() {
+        if (userData === "Logado com sucesso.") {
+            console.log("Logado, permitido update");
+            return (
+                <Link
+                    to="/update"
+                    id="text_Register"
+                    style={{
+                        textDecoration: "none",
+                        color: "white",
+                    }}
+                >
+                    <Button>Atualizar cadastro</Button>
+                </Link>
+            );
+        }
     }
 
     return (
@@ -71,6 +88,7 @@ function Login() {
                                 }),
                             })
                             .then((response) => response.json());
+
                         const handledANS = JSON.stringify(response.res).replace(
                             /["]/g,
                             ""
@@ -95,15 +113,11 @@ function Login() {
             >
                 <TextRegister>Faça seu cadastro</TextRegister>
             </Link>
-            {/* <Router>
-                <Route path="/register">
-                    <Register />
-                </Route>
-            </Router> */}
 
             {modalOpen ? (
                 <ModalRender onClose={() => setModal(false)}>
                     <b>{userData}</b>
+                    {checkLogin()}
                 </ModalRender>
             ) : (
                 <></>

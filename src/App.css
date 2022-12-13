@@ -22,6 +22,7 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
+    text-align: center;
 }
 
 .App-link {
@@ -50,8 +51,8 @@
 }
 
 .container_modal {
-    width: 40vw;
-    height: 40vh;
+    width: 30vw;
+    height: 30vh;
     background-color: rgb(204, 201, 201);
 }
 
@@ -71,9 +72,12 @@
     flex-direction: column;
     color: #000000;
     gap: 20px;
-    padding-top: 30px;
+    padding-top: 60px;
     font-size: 26px;
     font-family: "Times New Roman", Times, serif;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 #text_Register {
@@ -83,6 +87,9 @@
     text-decoration: underline;
     cursor: pointer;
     margin-top: 16px;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
 }
 
 #text_Register:hover {

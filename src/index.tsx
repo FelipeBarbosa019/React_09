@@ -1,19 +1,42 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
-import { UserLoginProvide } from "./contexts/LoginUser";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const root = ReactDOM.createRoot(
-    document.getElementById("root") as HTMLElement
-);
-root.render(
-    <React.StrictMode>
-        <Router>
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Update from "./pages/Update";
+
+import { UserLoginProvide } from "./contexts/LoginUser";
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: (
             <UserLoginProvide>
-                <App />
+                <Login />
             </UserLoginProvide>
-        </Router>
-    </React.StrictMode>
+        ),
+        // loader: rootLoader,
+    },
+    {
+        path: "/register",
+        element: (
+            <UserLoginProvide>
+                <Register />
+            </UserLoginProvide>
+        ),
+    },
+    {
+        path: "/update",
+        element: (
+            <UserLoginProvide>
+                <Update />
+            </UserLoginProvide>
+        ),
+    },
+]);
+
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+    <RouterProvider router={router} />
 );
