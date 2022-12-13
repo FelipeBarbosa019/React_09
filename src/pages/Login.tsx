@@ -33,6 +33,19 @@ function Login() {
                     <Button>Atualizar cadastro</Button>
                 </Link>
             );
+        } else {
+            return (
+                <Link
+                    to="/register"
+                    id="text_Register"
+                    style={{
+                        textDecoration: "none",
+                        color: "white",
+                    }}
+                >
+                    <Button>Cadastrar</Button>
+                </Link>
+            );
         }
     }
 
